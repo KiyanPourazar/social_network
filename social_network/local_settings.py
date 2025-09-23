@@ -1,0 +1,9 @@
+DEBUG = True
+IS_DEVEL = True
+
+ALLOWED_HOSTS = ['*']
+
+# DB_NAME = ''
+# DB_HOST = ''
+# DB_USER = ''
+# DB_PASSWORD = ''
