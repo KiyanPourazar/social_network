@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post, PostFile
+from .models import Post, PostFile, Comment, Like
 
 class PostFileInlineAdmin(admin.TabularInline):
     extra = 0
@@ -24,3 +24,16 @@ class PostAdmin(admin.ModelAdmin):
 # @admin.register(PostFile)
 # class PostFileAdmin(admin.ModelAdmin):
 #     pass
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user', 'is_approved')
+    list_filter = ('is_approved',)
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Like)
+class LikeAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user', 'is_liked')
+    list_filter = ('is_liked',)
+    date_hierarchy = 'created_at'
